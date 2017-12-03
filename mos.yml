@@ -59,9 +59,9 @@ config_schema:
   - ["wifi.sta.enable", true]
   - ["wifi.sta.ssid", "Your-net"]
   - ["wifi.sta.pass", "Your-pass"]
-  - ["temperatura", "o", {title: "Temperature controller"}]
-  - ["temperatura.limite_superior", "i", 21, {title: "Limite superior de T"}]
-  - ["temperatura.limite_inferior", "i", 18, {title: "Limite inferior de T"}]
+  - ["temperature", "o", {title: "Temperature controller"}]
+  - ["temperature.up_limit", "i", 21, {title: "Up limit of temperature"}]
+  - ["temperature.down_limit", "i", 18, {title: "Down limit of temperature"}]
 
 
 # Used by the mos tool to catch mos binaries incompatible with this file format
