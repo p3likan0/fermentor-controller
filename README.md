@@ -49,6 +49,14 @@ mos call Config.Get '{"key": "temperature.up_limit"}'
 mos call Config.Get '{"key": "temperature.down_limit"}'
 ```
 
+```
+mos call Config.Get '{"key": "temperature.termic_inertia"}'
+```
+
+```
+mos call Config.Get '{"key": "temperature.samples_to_average"}'
+```
+
 ### Get configurations 
 
 ```
@@ -58,3 +66,13 @@ mos config-set temperature.up_limit=20
 ```
 mos config-set temperature.down_limit=20
 ```
+
+```
+mos config-set temperature.termic_inertia=0.7
+```
+
+```
+mos config-set temperature.samples_to_average=6
+```
+
+

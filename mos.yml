@@ -62,6 +62,8 @@ config_schema:
   - ["temperature", "o", {title: "Temperature controller"}]
   - ["temperature.up_limit", "i", 21, {title: "Up limit of temperature"}]
   - ["temperature.down_limit", "i", 18, {title: "Down limit of temperature"}]
+  - ["temperature.termic_inertia", "d", 0.7, {title: "Experimental temric inertia"}]
+  - ["temperature.samples_to_average", "i", 6, {title: "Number of samples to average"}]
 
 
 # Used by the mos tool to catch mos binaries incompatible with this file format
