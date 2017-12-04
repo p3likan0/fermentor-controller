@@ -113,4 +113,4 @@ mos config-set temperature.termic_inertia=0.7
 mos config-set temperature.samples_to_average=6
 ```
 
-
+![screenshot_20171203_212617](https://user-images.githubusercontent.com/17766626/33531811-2e33f07a-d871-11e7-9627-43bc41c3f696.png)
