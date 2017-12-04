@@ -5,6 +5,7 @@
 #define PUMP_GPIO (16)
 #define PRENDIDA 0
 #define APAGADA 1
+#define AVERAGE 6
 
 static const char* influx_db_server = "udp://192.168.1.234:8089";
 bool pump_is_on = PRENDIDA;
@@ -12,11 +13,12 @@ float last_temperatures[3];
 
 float get_adc_average_value(){
     int analogValue = 0;
-    for(int i=0; i<(int)mgos_sys_config_get_temperature_samples_to_average; i++){
+    for(int i=0; i<(int)mgos_sys_config_get_temperature_samples_to_average(); i++){
         analogValue += mgos_adc_read(0);
     }
-    return analogValue/(int)mgos_sys_config_get_temperature_samples_to_average;
+    return analogValue/(int)mgos_sys_config_get_temperature_samples_to_average();
 }
+
 float read_temp(){
     float adc_value = get_adc_average_value();
     float millivolts = (adc_value/1024.0) * 3000;
