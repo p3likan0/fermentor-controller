@@ -1,3 +1,41 @@
+# How it works:
+
+One microcontroler, in this case ESP8266, take temperature from fermentor with LM65, and take control of temperature switching on/off a pump.
+This pump is connected to a cold bench, to transfer cold to fermentor.
+
+When ESP8266 take a temperature of fermentor, push this temperature and pump status to InfluxDB.
+
+# Config InfluxDB:
+
+Install it with: `sudo apt install influxdb`, or run it Docker(`https://hub.docker.com/_/influxdb/`). Everyway add this is the configuration to standard config:
+
+/etc/influxdb/influxdb.conf
+
+```
+[[udp]]
+  enabled = true
+  bind-address = ":8089"
+  database = "fermentador_1"
+```
+
+This allows esp8266 to push data to InfluxDB over UPD port.
+
+# Config Grafana:
+
+Using docker: `https://hub.docker.com/r/grafana/grafana/`
+
+Configrue grafana to use Influxdb as: http://docs.grafana.org/features/datasources/influxdb/.
+
+# Config mos to push to InfluxDB:
+
+vim src/main.c:
+
+```
+static const char* influx_db_server = "udp://192.168.1.234:8089";
+```
+
+Replace 192.168.1.234 with your influxdb server.
+
 # Install mos:
 
 ```
